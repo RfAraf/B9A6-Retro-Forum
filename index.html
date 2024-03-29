@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rf ReTro</title>
+    <!-- tailwind & daisyui link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- mulish google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- tailwind custom colors -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-color": "#797DFC",
+              "para-color": "#12132D99",
+              "heading-color": "#12132D",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .font-mulish {
+        font-family: "Mulish", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="font-mulish">
+    <header class="mx-5 lg:mx-24 xl:mx-32">
+      <nav class="my-5">
+        <div class="navbar bg-base-100 p-0 md:p-2 justify-between">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div
+                tabindex="0"
+                role="button"
+                class="btn btn-ghost lg:hidden p-0 md:p-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-16 space-y-3"
+              >
+                <li>
+                  <a
+                    class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px] py-[10px]"
+                    data-tip="Home"
+                    ><img src="./images/home.svg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a
+                    class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px] py-[10px]"
+                    data-tip="Edit"
+                    ><img src="./images/pen.svg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a
+                    class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px] py-[10px]"
+                    data-tip="Add Friend"
+                    ><img src="./images/friend.svg" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a
+                    class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px] py-[10px]"
+                    data-tip="Flag"
+                    ><img src="./images/flag.svg" alt=""
+                  /></a>
+                </li>
+              </ul>
+            </div>
+            <a
+              class="btn btn-ghost text-3xl md:text-4xl font-extrabold heading-color px-2"
+              >Rf ReTro</a
+            >
+          </div>
+          <div class="navbar-end hidden lg:flex mr-5">
+            <ul class="menu menu-horizontal px-1 space-x-2">
+              <li>
+                <a
+                  class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px]"
+                  data-tip="Home"
+                  ><img src="./images/home.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a
+                  class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px]"
+                  data-tip="Edit"
+                  ><img src="./images/pen.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a
+                  class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px]"
+                  data-tip="Add Friend"
+                  ><img src="./images/friend.svg" alt=""
+                /></a>
+              </li>
+              <li>
+                <a
+                  class="tooltip rounded-full border-2 bg-[#12132D08] px-[10px] py-[10px]"
+                  data-tip="Report"
+                  ><img src="./images/flag.svg" alt=""
+                /></a>
+              </li>
+            </ul>
+          </div>
+          <div class="navbar-center md:justify-end">
+            <button
+              class="btn bg-primary-color text-white border-0 rounded-full px-8"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </nav>
+      <!-- banner -->
+      <div>
+        <div
+          class="hero bg-[url('./images/bgbanner.png')] bg-[#12132D] rounded-2xl"
+        >
+          <div class="hero-content flex-col lg:flex-row p-8 md:p-16">
+            <div class="flex-1">
+              <h1 class="text-4xl md:text-6xl font-bold text-white leading-10">
+                Welcome to the
+                <span class="text-primary-color">ReTro</span> Forum
+              </h1>
+              <p class="py-6 text-[#FFFFFFCC]">
+                Share your favorite opinion and win and wp forum coffee mug!
+              </p>
+              <div class="relative">
+                <input
+                  id="search-field"
+                  type="text"
+                  placeholder="Search here anything"
+                  class="input input-bordered w-full max-w-72 md:max-w-sm rounded-full"
+                />
+                <button
+                  onclick="handleSearch()"
+                  class="absolute left-[200px] lg:left-[262px] top-1 bg-primary-color text-white border-0 rounded-full py-2 px-4 md:px-8"
+                >
+                  Search
+                </button>
+                <!-- class="btn absolute left-48 bg-primary-color text-white border-0 rounded-full px-4 md:px-8" -->
+              </div>
+            </div>
+            <!--  -->
+            <div class="rounded-2xl bg-white p-10">
+              <ul class="space-y-3 text-[#12132DCC]">
+                <li class="flex justify-between gap-10 font-medium md:text-xl">
+                  <span>Registered Users</span><span>01</span>
+                </li>
+                <li class="flex justify-between gap-10 font-medium md:text-xl">
+                  <span>Forum</span><span>05</span>
+                </li>
+                <li class="flex justify-between gap-10 font-medium md:text-xl">
+                  <span>Topics</span><span>01</span>
+                </li>
+                <li class="flex justify-between gap-10 font-medium md:text-xl">
+                  <span>Replies</span><span>01</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="mx-5 lg:mx-24 xl:mx-32 my-20 space-y-24">
+      <!-- loading spinner -->
+      <div id="loading-spinner" class="text-center hidden">
+        <span class="loading loading-spinner loading-md"></span>
+      </div>
+
+      <!-- let's discuss section -->
+      <section>
+        <div class="text-center">
+          <h1 class="text-heading-color text-4xl font-extrabold mb-5">
+            Let’s Discuss
+          </h1>
+          <p class="text-para-color mb-10">
+            Yes, you can run unit tests and view the results directly within the
+            app. <br />
+            The integrated testing features allow for a streamlined .
+          </p>
+        </div>
+
+        <!-- content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- posts container -->
+          <div id="posts-container" class="col-span-2 space-y-5"></div>
+
+          <!-- mark as a read (right portion) -->
+          <div class="bg-[#F3F3F5] p-6 rounded-2xl h-max">
+            <div class="flex justify-between mb-3">
+              <h4 class="text-heading-color font-bold text-xl">Title</h4>
+              <div class="flex gap-2 border-2 border-[#F3F3F5]">
+                <img src="./images/seen.svg" alt="" />
+                <p class="text-[#12132D99] border-2 border-[#F3F3F5]">
+                  Mark as read (<span id="mark-count">0</span>)
+                </p>
+              </div>
+            </div>
+            <!-- mark card container -->
+            <div id="mark-card-container" class="space-y-5"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- forum section -->
+      <div class="hero bg-[#12132D] rounded-2xl">
+        <div class="hero-content p-0 lg:p-4 flex-col lg:flex-row-reverse">
+          <img
+            class="p-5 lg:p-0"
+            src="./images/joinforum.png"
+            class="max-w-sm rounded-lg shadow-2xl"
+          />
+          <div class="text-white pb-5 lg:pb-0 px-4 lg:px-0 lg:pl-20">
+            <h1 class="text-5xl font-extrabold">Join Our Forum</h1>
+            <p class="text-[#FFFFFFCC] py-6">
+              Share your favorite opinion and win and wp forum coffee mug! Yes,
+              you can run unit tests and view the results directly within the
+              app.
+            </p>
+            <button
+              class="btn bg-primary-color text-white border-0 rounded-full px-8"
+            >
+              Registered Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- latest post section -->
+      <section>
+        <div class="text-center">
+          <h1 class="text-heading-color text-4xl font-extrabold mb-5">
+            Latest Posts
+          </h1>
+          <p class="text-para-color mb-10">
+            Yes, you can run unit tests and view the results directly within the
+            app. <br />
+            The integrated testing features allow for a streamlined .
+          </p>
+        </div>
+
+        <!-- post -->
+        <div
+          id="latest-post-container"
+          class="grid grid-cols-1 lg:grid-cols-3 gap-6"
+        ></div>
+      </section>
+    </main>
+    <footer class="bg-[#12132D0D] px-5 lg:px-24 xl:px-32 py-24 text-center">
+      <div>
+        <h3 class="text-heading-color text-4xl font-extrabold">Rf ReTro</h3>
+        <p class="text-[#12132DB3] mt-4 mb-8">
+          Contrary to popular belief, Lorem Ipsum is not simply random text.
+          <br />
+          It has roots in a piece of classical Latin literature from 45 BC
+        </p>
+        <div class="flex gap-5 items-center justify-center">
+          <div>
+            <img class="cursor-pointer" src="./images/twitter.svg" alt="" />
+          </div>
+          <div><img class="cursor-pointer" src="./images/fb.svg" alt="" /></div>
+          <div>
+            <img class="cursor-pointer" src="./images/insta.svg" alt="" />
+          </div>
+          <div>
+            <img class="cursor-pointer" src="./images/github.svg" alt="" />
+          </div>
+        </div>
+        <hr class="my-12" />
+        <p class="text-[#12132DB3]">2017, All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- script -->
+    <script src="./js/post.js"></script>
+  </body>
+</html>
